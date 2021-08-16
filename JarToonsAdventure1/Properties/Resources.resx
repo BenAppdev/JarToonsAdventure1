@@ -118,31 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="floor_grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\floor_grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="chr_Jessie_64_R" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\chr_Jessie_64_R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chr_Jessie_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\chr_Jessie_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="animCount_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chr_Jessie_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\chr_Jessie_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Jartoons_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\Jartoons_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="door_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\door_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="scroll_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\scroll_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="floor_grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\floor_grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="floor_grass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\floor_grass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="scroll_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\scroll_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jartoons_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\Jartoons_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chr_Jessie_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\chr_Jessie_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="door_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\door_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="animCount_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chr_Jessie_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\chr_Jessie_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="animCount_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="door_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\door_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="animCount_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="animCount_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="animCount_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\animCount_06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

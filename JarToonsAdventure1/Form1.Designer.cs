@@ -30,10 +30,12 @@ namespace JarToonsAdventure1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.lbl_animCount = new System.Windows.Forms.Label();
+            this.pb_animCount = new System.Windows.Forms.PictureBox();
             this.door2 = new System.Windows.Forms.PictureBox();
-            this.logoJartoons = new System.Windows.Forms.PictureBox();
             this.enemyTwo = new System.Windows.Forms.PictureBox();
             this.enemyOne = new System.Windows.Forms.PictureBox();
             this.door = new System.Windows.Forms.PictureBox();
@@ -58,8 +60,10 @@ namespace JarToonsAdventure1
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
+            this.lbl_flip = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_animCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.door2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoJartoons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.door)).BeginInit();
@@ -84,10 +88,12 @@ namespace JarToonsAdventure1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
             // 
+            this.txtScore.BackColor = System.Drawing.Color.Transparent;
             this.txtScore.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScore.Location = new System.Drawing.Point(385, 9);
             this.txtScore.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -100,14 +106,36 @@ namespace JarToonsAdventure1
             // gameTimer
             // 
             this.gameTimer.Enabled = true;
-            this.gameTimer.Interval = 20;
+            this.gameTimer.Interval = 40;
             this.gameTimer.Tick += new System.EventHandler(this.MyGameTimerEvent);
+            // 
+            // lbl_animCount
+            // 
+            this.lbl_animCount.AutoSize = true;
+            this.lbl_animCount.Location = new System.Drawing.Point(564, 192);
+            this.lbl_animCount.Name = "lbl_animCount";
+            this.lbl_animCount.Size = new System.Drawing.Size(70, 22);
+            this.lbl_animCount.TabIndex = 31;
+            this.lbl_animCount.Text = "label1";
+            this.lbl_animCount.Visible = false;
+            this.lbl_animCount.Click += new System.EventHandler(this.lbl_animCount_Click);
+            // 
+            // pb_animCount
+            // 
+            this.pb_animCount.Location = new System.Drawing.Point(646, 175);
+            this.pb_animCount.Name = "pb_animCount";
+            this.pb_animCount.Size = new System.Drawing.Size(62, 61);
+            this.pb_animCount.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_animCount.TabIndex = 32;
+            this.pb_animCount.TabStop = false;
+            this.pb_animCount.Visible = false;
+            this.pb_animCount.Click += new System.EventHandler(this.pb_animCount_Click);
             // 
             // door2
             // 
             this.door2.BackColor = System.Drawing.Color.Transparent;
             this.door2.Image = global::JarToonsAdventure1.Properties.Resources.door_2;
-            this.door2.Location = new System.Drawing.Point(22, 286);
+            this.door2.Location = new System.Drawing.Point(22, 50);
             this.door2.Name = "door2";
             this.door2.Size = new System.Drawing.Size(73, 60);
             this.door2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -116,19 +144,11 @@ namespace JarToonsAdventure1
             this.door2.Tag = "door";
             this.door2.Visible = false;
             // 
-            // logoJartoons
-            // 
-            this.logoJartoons.BackgroundImage = global::JarToonsAdventure1.Properties.Resources.Jartoons_logo;
-            this.logoJartoons.Location = new System.Drawing.Point(18, 12);
-            this.logoJartoons.Name = "logoJartoons";
-            this.logoJartoons.Size = new System.Drawing.Size(256, 88);
-            this.logoJartoons.TabIndex = 29;
-            this.logoJartoons.TabStop = false;
-            // 
             // enemyTwo
             // 
             this.enemyTwo.BackColor = System.Drawing.Color.DarkBlue;
-            this.enemyTwo.Location = new System.Drawing.Point(547, 447);
+            this.enemyTwo.Location = new System.Drawing.Point(535, 331);
+            this.enemyTwo.Margin = new System.Windows.Forms.Padding(0);
             this.enemyTwo.Name = "enemyTwo";
             this.enemyTwo.Size = new System.Drawing.Size(30, 40);
             this.enemyTwo.TabIndex = 13;
@@ -138,7 +158,7 @@ namespace JarToonsAdventure1
             // enemyOne
             // 
             this.enemyOne.BackColor = System.Drawing.Color.DarkBlue;
-            this.enemyOne.Location = new System.Drawing.Point(220, 568);
+            this.enemyOne.Location = new System.Drawing.Point(322, 492);
             this.enemyOne.Name = "enemyOne";
             this.enemyOne.Size = new System.Drawing.Size(30, 40);
             this.enemyOne.TabIndex = 12;
@@ -149,7 +169,7 @@ namespace JarToonsAdventure1
             // 
             this.door.BackColor = System.Drawing.Color.Transparent;
             this.door.Image = global::JarToonsAdventure1.Properties.Resources.door_1;
-            this.door.Location = new System.Drawing.Point(22, 286);
+            this.door.Location = new System.Drawing.Point(22, 50);
             this.door.Name = "door";
             this.door.Size = new System.Drawing.Size(73, 60);
             this.door.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -174,7 +194,7 @@ namespace JarToonsAdventure1
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.Image = global::JarToonsAdventure1.Properties.Resources.floor_grass;
-            this.pictureBox8.Location = new System.Drawing.Point(12, 346);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 110);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(145, 30);
             this.pictureBox8.TabIndex = 8;
@@ -185,7 +205,7 @@ namespace JarToonsAdventure1
             // 
             this.horizontalPlatform.BackColor = System.Drawing.Color.Transparent;
             this.horizontalPlatform.Image = global::JarToonsAdventure1.Properties.Resources.floor_grass;
-            this.horizontalPlatform.Location = new System.Drawing.Point(402, 316);
+            this.horizontalPlatform.Location = new System.Drawing.Point(415, 118);
             this.horizontalPlatform.Name = "horizontalPlatform";
             this.horizontalPlatform.Size = new System.Drawing.Size(175, 39);
             this.horizontalPlatform.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,7 +217,7 @@ namespace JarToonsAdventure1
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::JarToonsAdventure1.Properties.Resources.floor_grass;
-            this.pictureBox6.Location = new System.Drawing.Point(123, 430);
+            this.pictureBox6.Location = new System.Drawing.Point(134, 287);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(140, 44);
             this.pictureBox6.TabIndex = 6;
@@ -208,9 +228,9 @@ namespace JarToonsAdventure1
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::JarToonsAdventure1.Properties.Resources.floor_grass;
-            this.pictureBox5.Location = new System.Drawing.Point(305, 497);
+            this.pictureBox5.Location = new System.Drawing.Point(338, 382);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(276, 45);
+            this.pictureBox5.Size = new System.Drawing.Size(252, 45);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
@@ -220,9 +240,9 @@ namespace JarToonsAdventure1
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::JarToonsAdventure1.Properties.Resources.floor_grass2;
-            this.pictureBox4.Location = new System.Drawing.Point(84, 615);
+            this.pictureBox4.Location = new System.Drawing.Point(235, 541);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(418, 32);
+            this.pictureBox4.Size = new System.Drawing.Size(224, 32);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "platform";
@@ -231,7 +251,7 @@ namespace JarToonsAdventure1
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::JarToonsAdventure1.Properties.Resources.floor_grass;
-            this.pictureBox2.Location = new System.Drawing.Point(559, 730);
+            this.pictureBox2.Location = new System.Drawing.Point(-20, 560);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(136, 41);
             this.pictureBox2.TabIndex = 2;
@@ -254,7 +274,7 @@ namespace JarToonsAdventure1
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.Enabled = false;
             this.pictureBox10.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox10.Location = new System.Drawing.Point(470, 268);
+            this.pictureBox10.Location = new System.Drawing.Point(483, 70);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(41, 42);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -267,7 +287,7 @@ namespace JarToonsAdventure1
             this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox17.Enabled = false;
             this.pictureBox17.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox17.Location = new System.Drawing.Point(209, 390);
+            this.pictureBox17.Location = new System.Drawing.Point(220, 247);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(41, 42);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -280,7 +300,7 @@ namespace JarToonsAdventure1
             this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox15.Enabled = false;
             this.pictureBox15.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox15.Location = new System.Drawing.Point(398, 449);
+            this.pictureBox15.Location = new System.Drawing.Point(431, 331);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(41, 42);
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,7 +313,7 @@ namespace JarToonsAdventure1
             this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox14.Enabled = false;
             this.pictureBox14.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox14.Location = new System.Drawing.Point(322, 449);
+            this.pictureBox14.Location = new System.Drawing.Point(355, 331);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(41, 42);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -306,7 +326,7 @@ namespace JarToonsAdventure1
             this.pictureBox20.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox20.Enabled = false;
             this.pictureBox20.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox20.Location = new System.Drawing.Point(287, 568);
+            this.pictureBox20.Location = new System.Drawing.Point(244, 494);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(41, 42);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -319,7 +339,7 @@ namespace JarToonsAdventure1
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Enabled = false;
             this.pictureBox3.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox3.Location = new System.Drawing.Point(173, 566);
+            this.pictureBox3.Location = new System.Drawing.Point(630, 477);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(41, 42);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -332,7 +352,7 @@ namespace JarToonsAdventure1
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Enabled = false;
             this.pictureBox9.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox9.Location = new System.Drawing.Point(96, 566);
+            this.pictureBox9.Location = new System.Drawing.Point(176, 392);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(41, 42);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -345,7 +365,7 @@ namespace JarToonsAdventure1
             this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.Enabled = false;
             this.pictureBox12.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox12.Location = new System.Drawing.Point(630, 682);
+            this.pictureBox12.Location = new System.Drawing.Point(51, 512);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(41, 42);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -397,7 +417,7 @@ namespace JarToonsAdventure1
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Enabled = false;
             this.pictureBox7.Image = global::JarToonsAdventure1.Properties.Resources.scroll_;
-            this.pictureBox7.Location = new System.Drawing.Point(568, 682);
+            this.pictureBox7.Location = new System.Drawing.Point(-11, 512);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(41, 42);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -407,18 +427,42 @@ namespace JarToonsAdventure1
             // 
             // player
             // 
+            this.player.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.player.Enabled = false;
             this.player.Image = global::JarToonsAdventure1.Properties.Resources.chr_Jessie_64;
-            this.player.InitialImage = global::JarToonsAdventure1.Properties.Resources.chr_Jessie_64;
-            this.player.Location = new System.Drawing.Point(43, 696);
+            this.player.Location = new System.Drawing.Point(36, 705);
+            this.player.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(64, 64);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.player.Size = new System.Drawing.Size(80, 80);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player.TabIndex = 10;
             this.player.TabStop = false;
             this.player.Tag = "Player";
             this.player.Click += new System.EventHandler(this.player_Click);
+            // 
+            // lbl_flip
+            // 
+            this.lbl_flip.AutoSize = true;
+            this.lbl_flip.Location = new System.Drawing.Point(564, 214);
+            this.lbl_flip.Name = "lbl_flip";
+            this.lbl_flip.Size = new System.Drawing.Size(70, 22);
+            this.lbl_flip.TabIndex = 33;
+            this.lbl_flip.Text = "label1";
+            this.lbl_flip.Visible = false;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(280, 12);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(193, 51);
+            this.axWindowsMediaPlayer1.TabIndex = 34;
+            this.axWindowsMediaPlayer1.Visible = false;
             // 
             // Form1
             // 
@@ -426,8 +470,11 @@ namespace JarToonsAdventure1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(718, 826);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.lbl_flip);
+            this.Controls.Add(this.pb_animCount);
+            this.Controls.Add(this.lbl_animCount);
             this.Controls.Add(this.door2);
-            this.Controls.Add(this.logoJartoons);
             this.Controls.Add(this.enemyTwo);
             this.Controls.Add(this.enemyOne);
             this.Controls.Add(this.door);
@@ -439,7 +486,6 @@ namespace JarToonsAdventure1
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtScore);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox15);
@@ -453,6 +499,7 @@ namespace JarToonsAdventure1
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.player);
+            this.Controls.Add(this.txtScore);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -461,8 +508,8 @@ namespace JarToonsAdventure1
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_animCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.door2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoJartoons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyOne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.door)).EndInit();
@@ -487,6 +534,7 @@ namespace JarToonsAdventure1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,8 +568,11 @@ namespace JarToonsAdventure1
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.PictureBox logoJartoons;
         private System.Windows.Forms.PictureBox door2;
+        private System.Windows.Forms.Label lbl_animCount;
+        private System.Windows.Forms.PictureBox pb_animCount;
+        private System.Windows.Forms.Label lbl_flip;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 
